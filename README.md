@@ -17,7 +17,12 @@
 ## Установка
 
 ### Готовый exe (portable)
-Скачайте `GithubRemover.exe` из [Releases]
+Скачайте `GithubRemover.exe` по [прямой ссылке](https://github.com/PerfLite/Github-Remover-Repository/releases/download/v.1/GithubRemover.exe)
+
+### Из исходников
+```bash
+dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o ./publish
+```
 
 ## Использование
 
