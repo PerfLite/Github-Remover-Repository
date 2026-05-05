@@ -17,7 +17,7 @@
 ## Установка
 
 ### Готовый exe (portable)
-Скачайте `GithubRemover` по [прямой ссылке](https://github.com/PerfLite/Github-Remover-Repository/releases/download/v.1/GithubRemover.exe)
+Скачайте [GithubRemover](https://github.com/PerfLite/Github-Remover-Repository/releases/download/v.1/GithubRemover.exe)
 
 ### Из исходников
 ```bash
@@ -35,10 +35,6 @@ dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=
 ## Как это работает
 
 Приложение использует GitHub CLI (`gh repo list` и `gh repo delete`) для работы с репозиториями. Никакие токены не хранятся - всё делается через `gh`.
-
-## Скриншот
-
-![Screenshot](screenshot.png)
 
 ## Лицензия
 
