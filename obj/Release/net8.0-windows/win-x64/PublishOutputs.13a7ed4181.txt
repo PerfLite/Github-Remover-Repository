@@ -1,0 +1,7 @@
+C:\dev\ProgiiiWindows\GithubRemover_C#\publish-onefile\GithubRemover.pdb
+C:\dev\ProgiiiWindows\GithubRemover_C#\publish-onefile\D3DCompiler_47_cor3.dll
+C:\dev\ProgiiiWindows\GithubRemover_C#\publish-onefile\PenImc_cor3.dll
+C:\dev\ProgiiiWindows\GithubRemover_C#\publish-onefile\PresentationNative_cor3.dll
+C:\dev\ProgiiiWindows\GithubRemover_C#\publish-onefile\vcruntime140_cor3.dll
+C:\dev\ProgiiiWindows\GithubRemover_C#\publish-onefile\wpfgfx_cor3.dll
+C:\dev\ProgiiiWindows\GithubRemover_C#\publish-onefile\GithubRemover.exe

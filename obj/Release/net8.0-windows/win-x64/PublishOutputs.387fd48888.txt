@@ -1,0 +1,2 @@
+C:\dev\ProgiiiWindows\GithubRemover_C#\publish-full\GithubRemover.pdb
+C:\dev\ProgiiiWindows\GithubRemover_C#\publish-full\GithubRemover.exe
