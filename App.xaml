@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:GithubRemover"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="ScrollBar">
+            <Setter Property="Visibility" Value="Collapsed"/>
+        </Style>
     </Application.Resources>
 </Application>

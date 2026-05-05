@@ -8,7 +8,8 @@
         AllowsTransparency="True"
         Background="Transparent"
         ResizeMode="NoResize"
-        ShowInTaskbar="False">
+        ShowInTaskbar="False"
+        Loaded="Window_Loaded">
 
     <Border Background="#1E1E2E" CornerRadius="8" BorderBrush="#3A3A4A" BorderThickness="1">
         <Grid Margin="20">
@@ -22,15 +23,16 @@
                 <TextBlock x:Name="TitleText" Text="Подтверждение" 
                            FontSize="14" FontWeight="Bold" Foreground="White" 
                            VerticalAlignment="Center"/>
-                <Button Content="✕" Width="25" Height="25" 
+                <Button x:Name="CloseBtn" Width="25" Height="25" 
                         Background="Transparent" Foreground="White" 
                         BorderThickness="0" Click="CloseBtn_Click" 
-                        FontSize="14" HorizontalAlignment="Right">
+                        HorizontalAlignment="Right">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border x:Name="border" Background="{TemplateBinding Background}" 
                                     BorderBrush="Transparent" BorderThickness="2" CornerRadius="5">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Image x:Name="CloseIcon" Width="16" Height="16" 
+                                       RenderOptions.BitmapScalingMode="HighQuality"/>
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">

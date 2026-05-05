@@ -1,13 +1,48 @@
 # GithubRemover
 
+A utility for deleting GitHub repositories via GUI.
+
+## Features
+
+- View a list of your repositories
+- Delete repositories with a single click
+- Support for changing languages EN-RU
+
+## Requirements
+
+- [.NET 8.0](https://dotnet.microsoft.com/download) (if not running from an exe)
+- [GitHub CLI](https://cli.github.com/) (`gh`) - must be installed and authorized
+
+## Installation
+
+### Ready exe (portable)
+Download [GithubRemover](https://github.com/PerfLite/Github-Remover-Repository/releases/download/v.1/GithubRemover.exe)
+
+## Usage
+
+1. Make sure GitHub CLI is installed: `gh --version`
+2. Log in: `gh auth login`
+3. Run `GithubRemover.exe`
+4. Select a repository from the list
+5. Click "Delete"
+
+## How it works
+
+The application uses the GitHub CLI (`gh repo list` and `gh repo delete`) to work with repositories. No tokens are stored - everything is done through `gh`.
+
+## License
+
+MIT
+
+# GithubRemover
+
 Утилита для удаления GitHub-репозиториев через GUI.
 
 ## Возможности
 
 - Просмотр списка ваших репозиториев
 - Удаление репозиториев одним кликом
-- Тёмная тема в стиле GitHub
-- Кастомное окно подтверждения удаления
+- Поддежка смены языков EN-RU
 
 ## Требования
 
@@ -18,11 +53,6 @@
 
 ### Готовый exe (portable)
 Скачайте [GithubRemover](https://github.com/PerfLite/Github-Remover-Repository/releases/download/v.1/GithubRemover.exe)
-
-### Из исходников
-```bash
-dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o ./publish
-```
 
 ## Использование
 
@@ -35,7 +65,3 @@ dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=
 ## Как это работает
 
 Приложение использует GitHub CLI (`gh repo list` и `gh repo delete`) для работы с репозиториями. Никакие токены не хранятся - всё делается через `gh`.
-
-## Лицензия
-
-MIT

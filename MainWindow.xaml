@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
-        mc:Ignorable="d" x:Class="GitCleaner.MainWindow"
+        mc:Ignorable="d" x:Class="GitCleaner.MainWindow" Loaded="Window_Loaded"
         Title="GitHub Repo Cleaner"
         Height="500" Width="600"
         WindowStartupLocation="CenterScreen"
@@ -11,7 +11,7 @@
         AllowsTransparency="True"
         Background="Transparent">
 
-    <Border Background="#0A0E14" CornerRadius="12" BorderBrush="#3A3A4A" BorderThickness="1">
+    <Border Background="#0A0E14" CornerRadius="12" BorderBrush="Transparent" BorderThickness="1">
         <Grid Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="35"/>
@@ -32,33 +32,54 @@
                         <TextBlock Text="Git" FontSize="14" FontWeight="Bold" Foreground="White"/>
                         <TextBlock x:Name="TitleText" Text="Cleaner" FontSize="14" FontWeight="Bold" Foreground="White"/>
                     </StackPanel>
-                    <Button x:Name="CloseBtn" Grid.Column="2" Content="✕" Width="30" Height="30" 
-                            Background="Transparent" Foreground="White" 
-                            BorderThickness="0" Click="CloseBtn_Click" 
-                            FontSize="16" HorizontalAlignment="Right">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border x:Name="border" Background="{TemplateBinding Background}" 
-                                    BorderBrush="Transparent" BorderThickness="2" CornerRadius="5">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="border" Property="BorderBrush" Value="White"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
+                    <StackPanel Grid.Column="2" Orientation="Horizontal">
+                        <Button x:Name="LangBtn" Width="30" Height="30" 
+                                Background="Transparent" Foreground="White" 
+                                BorderThickness="0" Click="LangBtn_Click" 
+                                Margin="0,0,5,0">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="border" Background="{TemplateBinding Background}" 
+                                            BorderBrush="Transparent" BorderThickness="2" CornerRadius="5">
+                                        <TextBlock x:Name="LangText" Text="RU" FontSize="12" FontWeight="Bold"
+                                                   Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="border" Property="BorderBrush" Value="White"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button x:Name="CloseBtn" Width="30" Height="30" 
+                                Background="Transparent" Foreground="White" 
+                                BorderThickness="0" Click="CloseBtn_Click">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="border" Background="{TemplateBinding Background}" 
+                                            BorderBrush="Transparent" BorderThickness="2" CornerRadius="5">
+                                        <Image x:Name="CloseIcon" Width="20" Height="20" 
+                                               RenderOptions.BitmapScalingMode="HighQuality"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="border" Property="BorderBrush" Value="White"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </StackPanel>
                 </Grid>
             </Border>
 
             <!-- Список репозиториев -->
             <ListBox x:Name="RepoList" Grid.Row="1" 
-                     Background="#1E1E2E" Foreground="White" 
-                     FontSize="15" BorderBrush="#3A3A4A" 
-                     BorderThickness="1" Margin="0,10"
-                     MouseLeftButtonDown="RepoList_MouseDown">
+                     Background="Transparent" Foreground="#d8bafd" 
+                     FontSize="15" BorderBrush="Transparent" 
+                     BorderThickness="3" Margin="0,10"
+                     MouseLeftButtonDown="RepoList_MouseDown" d:ItemsSource="{d:SampleData ItemCount=5}">
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="Padding" Value="8,5"/>
@@ -70,7 +91,7 @@
                                 BorderBrush="{TemplateBinding BorderBrush}" 
                                 BorderThickness="{TemplateBinding BorderThickness}" 
                                 CornerRadius="8">
-                            <ScrollViewer>
+                            <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled">
                                 <ItemsPresenter/>
                             </ScrollViewer>
                         </Border>
@@ -81,7 +102,7 @@
             <!-- Кнопки -->
             <Grid Grid.Row="2" Margin="0,10,0,0">
                 <Button x:Name="ClearBtn" Content="Отменить выбор" Width="123" Height="35" 
-                        Background="#2D2D3A" Foreground="White" BorderThickness="0" 
+                        Background="#0a0e14" Foreground="White" BorderThickness="0" 
                         HorizontalAlignment="Left" Click="ClearBtn_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
@@ -97,14 +118,14 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                <Button Width="100" Height="35" Margin="0,0,10,0" 
-                        Background="#2D2D3A" Foreground="White" BorderThickness="0" 
+                <Button x:Name="RefreshBtn" Width="100" Height="35" Margin="0,0,10,0" 
+                        Background="#0a0e14" Foreground="White" BorderThickness="0" 
                         Click="RefreshBtn_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border x:Name="border" Background="{TemplateBinding Background}" 
                                     BorderBrush="Transparent" BorderThickness="2" CornerRadius="5">
-                                <TextBlock Text="🔄 Обновить" Foreground="{TemplateBinding Foreground}" 
+                                <TextBlock x:Name="RefreshText" Text="🔄 Обновить" Foreground="{TemplateBinding Foreground}" 
                                            VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             </Border>
                             <ControlTemplate.Triggers>
@@ -115,7 +136,7 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                <Button Content="❌ Удалить" Width="100" Height="35" 
+                <Button x:Name="DeleteBtn" Content="❌ Удалить" Width="100" Height="35" 
                         Background="#D32F2F" Foreground="White" BorderThickness="0" 
                         HorizontalAlignment="Right" Click="DeleteBtn_Click">
                     <Button.Template>
