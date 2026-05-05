@@ -1,11 +1,11 @@
-﻿<Application x:Class="GithubRemover.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:GithubRemover"
-             StartupUri="MainWindow.xaml">
-    <Application.Resources>
-        <Style TargetType="ScrollBar">
-            <Setter Property="Visibility" Value="Collapsed"/>
+             x:Class="GitCleaner.App"
+             RequestedThemeVariant="Dark">
+    <Application.Styles>
+        <FluentTheme />
+        <Style Selector="ScrollBar">
+            <Setter Property="IsVisible" Value="False"/>
         </Style>
-    </Application.Resources>
+    </Application.Styles>
 </Application>

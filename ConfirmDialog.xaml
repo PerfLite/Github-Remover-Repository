@@ -1,15 +1,78 @@
-<Window x:Class="GitCleaner.ConfirmDialog"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="GitCleaner.ConfirmDialog"
+        x:CompileBindings="False"
         Title="Подтверждение"
         Height="180" Width="350"
         WindowStartupLocation="CenterOwner"
-        WindowStyle="None"
-        AllowsTransparency="True"
+        SystemDecorations="None"
+        TransparencyLevelHint="Transparent"
         Background="Transparent"
-        ResizeMode="NoResize"
-        ShowInTaskbar="False"
-        Loaded="Window_Loaded">
+        CanResize="False"
+        ShowInTaskbar="False">
+    <Window.Styles>
+        <Style Selector="Button.custom">
+            <Setter Property="Background" Value="#2D2D3A"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border x:Name="border" Background="{TemplateBinding Background}" 
+                            BorderBrush="Transparent" BorderThickness="2" CornerRadius="5">
+                        <ContentPresenter x:Name="PART_ContentPresenter"
+                                          Content="{TemplateBinding Content}"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="Button.custom:pointerover /template/ Border#border">
+            <Setter Property="BorderBrush" Value="White"/>
+        </Style>
+        
+        <Style Selector="Button.delete">
+            <Setter Property="Background" Value="#D32F2F"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border x:Name="border" Background="{TemplateBinding Background}" 
+                            BorderBrush="Transparent" BorderThickness="2" CornerRadius="5">
+                        <ContentPresenter x:Name="PART_ContentPresenter"
+                                          Content="{TemplateBinding Content}"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="Button.delete:pointerover /template/ Border#border">
+            <Setter Property="BorderBrush" Value="White"/>
+        </Style>
+        
+        <Style Selector="Button.iconBtn">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border x:Name="border" Background="{TemplateBinding Background}" 
+                            BorderBrush="Transparent" BorderThickness="2" CornerRadius="5">
+                        <ContentPresenter x:Name="PART_ContentPresenter"
+                                          Content="{TemplateBinding Content}"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="Button.iconBtn:pointerover /template/ Border#border">
+            <Setter Property="BorderBrush" Value="White"/>
+        </Style>
+    </Window.Styles>
 
     <Border Background="#1E1E2E" CornerRadius="8" BorderBrush="#3A3A4A" BorderThickness="1">
         <Grid Margin="20">
@@ -24,23 +87,10 @@
                            FontSize="14" FontWeight="Bold" Foreground="White" 
                            VerticalAlignment="Center"/>
                 <Button x:Name="CloseBtn" Width="25" Height="25" 
-                        Background="Transparent" Foreground="White" 
-                        BorderThickness="0" Click="CloseBtn_Click" 
+                        Classes="iconBtn"
+                        Click="CloseBtn_Click" 
                         HorizontalAlignment="Right">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border x:Name="border" Background="{TemplateBinding Background}" 
-                                    BorderBrush="Transparent" BorderThickness="2" CornerRadius="5">
-                                <Image x:Name="CloseIcon" Width="16" Height="16" 
-                                       RenderOptions.BitmapScalingMode="HighQuality"/>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="border" Property="BorderBrush" Value="White"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Button.Template>
+                    <Image x:Name="CloseIcon" Width="16" Height="16"/>
                 </Button>
             </Grid>
 
@@ -51,39 +101,11 @@
 
             <StackPanel x:Name="ButtonsPanel" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button x:Name="CancelBtn" Content="Отмена" Width="80" Height="32" 
-                        Background="#2D2D3A" Foreground="White" BorderThickness="0" 
-                        Margin="0,0,10,0" Click="CancelBtn_Click">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border x:Name="border" Background="{TemplateBinding Background}" 
-                                    BorderBrush="Transparent" BorderThickness="2" CornerRadius="5">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="border" Property="BorderBrush" Value="White"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
+                        Classes="custom"
+                        Margin="0,0,10,0" Click="CancelBtn_Click"/>
                 <Button x:Name="ConfirmBtn" Content="Удалить" Width="80" Height="32" 
-                        Background="#D32F2F" Foreground="White" BorderThickness="0" 
-                        Click="ConfirmBtn_Click">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border x:Name="border" Background="{TemplateBinding Background}" 
-                                    BorderBrush="Transparent" BorderThickness="2" CornerRadius="5">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="border" Property="BorderBrush" Value="White"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
+                        Classes="delete"
+                        Click="ConfirmBtn_Click"/>
             </StackPanel>
         </Grid>
     </Border>

@@ -1,15 +1,94 @@
-<Window
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-        xmlns:gif="http://wpfanimatedgif.codeplex.com"
-        mc:Ignorable="d" x:Class="GitCleaner.MainWindow" Loaded="Window_Loaded"
+        x:Class="GitCleaner.MainWindow"
         Title="GitHub Repo Cleaner"
         Height="500" Width="600"
         WindowStartupLocation="CenterScreen"
-        WindowStyle="None"
-        AllowsTransparency="True"
+        SystemDecorations="None"
+        TransparencyLevelHint="Transparent"
         Background="Transparent">
+    <Window.Styles>
+        <Style Selector="Button.custom">
+            <Setter Property="Background" Value="#0a0e14"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border x:Name="border" Background="{TemplateBinding Background}"
+                            BorderBrush="Transparent" BorderThickness="2" CornerRadius="5">
+                        <ContentPresenter x:Name="contentPresenter"
+                                          Background="Transparent"
+                                          Content="{TemplateBinding Content}"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="Button.custom:pointerover /template/ Border#border">
+            <Setter Property="BorderBrush" Value="White"/>
+        </Style>
+        <Style Selector="Button.custom:pointerover /template/ ContentPresenter#contentPresenter">
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+
+        <Style Selector="Button.delete">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border x:Name="border" Background="{TemplateBinding Background}"
+                            BorderBrush="Transparent" BorderThickness="2" CornerRadius="5">
+                        <ContentPresenter x:Name="contentPresenter"
+                                          Background="Transparent"
+                                          Content="{TemplateBinding Content}"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="Button.delete:pointerover /template/ Border#border">
+            <Setter Property="BorderBrush" Value="White"/>
+        </Style>
+        <Style Selector="Button.delete:pointerover /template/ ContentPresenter#contentPresenter">
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+
+        <Style Selector="Button.iconBtn">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border x:Name="border" Background="{TemplateBinding Background}"
+                            BorderBrush="Transparent" BorderThickness="2" CornerRadius="5">
+                        <ContentPresenter x:Name="contentPresenter"
+                                          Background="Transparent"
+                                          Content="{TemplateBinding Content}"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="Button.iconBtn:pointerover /template/ Border#border">
+            <Setter Property="BorderBrush" Value="White"/>
+        </Style>
+        <Style Selector="Button.iconBtn:pointerover /template/ ContentPresenter#contentPresenter">
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        <Style Selector="TextBlock#TitleText">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.3"/>
+                </Transitions>
+            </Setter>
+        </Style>
+    </Window.Styles>
 
     <Border Background="#0A0E14" CornerRadius="12" BorderBrush="Transparent" BorderThickness="1">
         <Grid Margin="10">
@@ -20,7 +99,7 @@
             </Grid.RowDefinitions>
 
             <Border Grid.Row="0" Background="#0A0E14" CornerRadius="8,8,0,0" 
-                    MouseLeftButtonDown="DragWindow">
+                    PointerPressed="DragWindow">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -34,124 +113,55 @@
                     </StackPanel>
                     <StackPanel Grid.Column="2" Orientation="Horizontal">
                         <Button x:Name="LangBtn" Width="30" Height="30" 
-                                Background="Transparent" Foreground="White" 
-                                BorderThickness="0" Click="LangBtn_Click" 
+                                Classes="iconBtn"
+                                Click="LangBtn_Click" 
                                 Margin="0,0,5,0">
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border x:Name="border" Background="{TemplateBinding Background}" 
-                                            BorderBrush="Transparent" BorderThickness="2" CornerRadius="5">
-                                        <TextBlock x:Name="LangText" Text="RU" FontSize="12" FontWeight="Bold"
-                                                   Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter TargetName="border" Property="BorderBrush" Value="White"/>
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Button.Template>
+                            <TextBlock x:Name="LangText" Text="RU" FontSize="12" FontWeight="Bold"
+                                       Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Button>
                         <Button x:Name="CloseBtn" Width="30" Height="30" 
-                                Background="Transparent" Foreground="White" 
-                                BorderThickness="0" Click="CloseBtn_Click">
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border x:Name="border" Background="{TemplateBinding Background}" 
-                                            BorderBrush="Transparent" BorderThickness="2" CornerRadius="5">
-                                        <Image x:Name="CloseIcon" Width="20" Height="20" 
-                                               RenderOptions.BitmapScalingMode="HighQuality"/>
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter TargetName="border" Property="BorderBrush" Value="White"/>
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Button.Template>
+                                Classes="iconBtn"
+                                Click="CloseBtn_Click">
+                            <Image x:Name="CloseIcon" Width="20" Height="20"/>
                         </Button>
                     </StackPanel>
                 </Grid>
             </Border>
 
-            <!-- Список репозиториев -->
-            <ListBox x:Name="RepoList" Grid.Row="1" 
-                     Background="Transparent" Foreground="#d8bafd" 
-                     FontSize="15" BorderBrush="Transparent" 
-                     BorderThickness="3" Margin="0,10"
-                     MouseLeftButtonDown="RepoList_MouseDown" d:ItemsSource="{d:SampleData ItemCount=5}">
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="ListBoxItem">
-                        <Setter Property="Padding" Value="8,5"/>
-                    </Style>
-                </ListBox.ItemContainerStyle>
-                <ListBox.Template>
-                    <ControlTemplate TargetType="ListBox">
-                        <Border Background="{TemplateBinding Background}" 
-                                BorderBrush="{TemplateBinding BorderBrush}" 
-                                BorderThickness="{TemplateBinding BorderThickness}" 
-                                CornerRadius="8">
-                            <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled">
-                                <ItemsPresenter/>
-                            </ScrollViewer>
-                        </Border>
-                    </ControlTemplate>
-                </ListBox.Template>
-            </ListBox>
+            <Border Grid.Row="1" CornerRadius="8" BorderThickness="3" BorderBrush="Transparent" Margin="0,10">
+                <ListBox x:Name="RepoList" 
+                         Background="Transparent" Foreground="#d8bafd" 
+                         FontSize="15" BorderBrush="Transparent"
+                         PointerPressed="RepoList_PointerPressed">
+                    <ListBox.Styles>
+                        <Style Selector="ListBoxItem">
+                            <Setter Property="Padding" Value="8,5"/>
+                        </Style>
+                    </ListBox.Styles>
+                </ListBox>
+            </Border>
 
-            <!-- Кнопки -->
             <Grid Grid.Row="2" Margin="0,10,0,0">
-                <Button x:Name="ClearBtn" Content="Отменить выбор" Width="123" Height="35" 
-                        Background="#0a0e14" Foreground="White" BorderThickness="0" 
+                <Button x:Name="ClearBtn" Width="123" Height="35"
+                        Classes="custom"
                         HorizontalAlignment="Left" Click="ClearBtn_Click">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border x:Name="border" Background="{TemplateBinding Background}" 
-                                    BorderBrush="Transparent" BorderThickness="2" CornerRadius="5">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="border" Property="BorderBrush" Value="White"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Button.Template>
+                    <TextBlock x:Name="ClearBtnText" Text="Отменить выбор" Foreground="White" VerticalAlignment="Center"/>
                 </Button>
-                <Button x:Name="RefreshBtn" Width="100" Height="35" Margin="0,0,10,0" 
-                        Background="#0a0e14" Foreground="White" BorderThickness="0" 
-                        Click="RefreshBtn_Click">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border x:Name="border" Background="{TemplateBinding Background}" 
-                                    BorderBrush="Transparent" BorderThickness="2" CornerRadius="5">
-                                <TextBlock x:Name="RefreshText" Text="🔄 Обновить" Foreground="{TemplateBinding Foreground}" 
-                                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="border" Property="BorderBrush" Value="White"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Button.Template>
+                <Button x:Name="RefreshBtn" Width="100" Height="35" Margin="0,0,10,0"
+                        Classes="custom"
+                        HorizontalAlignment="Center" Click="RefreshBtn_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="16" Height="16" Source="avares://GithubRemover/Assets/icon_refresh.png" Margin="0,0,4,0"/>
+                        <TextBlock x:Name="RefreshBtnText" Text="Обновить" Foreground="White" VerticalAlignment="Center"/>
+                    </StackPanel>
                 </Button>
-                <Button x:Name="DeleteBtn" Content="❌ Удалить" Width="100" Height="35" 
-                        Background="#D32F2F" Foreground="White" BorderThickness="0" 
+                <Button x:Name="DeleteBtn" Width="100" Height="35"
+                        Classes="delete"
                         HorizontalAlignment="Right" Click="DeleteBtn_Click">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border x:Name="border" Background="{TemplateBinding Background}" 
-                                    BorderBrush="Transparent" BorderThickness="2" CornerRadius="5">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="border" Property="BorderBrush" Value="White"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Button.Template>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="16" Height="16" Source="avares://GithubRemover/Assets/icon_remove.png" Margin="0,0,4,0"/>
+                        <TextBlock x:Name="DeleteBtnText" Text="Удалить" Foreground="red" VerticalAlignment="Center"/>
+                    </StackPanel>
                 </Button>
             </Grid>
         </Grid>

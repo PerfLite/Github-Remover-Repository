@@ -1,13 +1,29 @@
-using System.Windows;
-using System.Windows.Media.Imaging;
+using System;
+using System.Collections.Generic;
+using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Markup.Xaml;
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
 
 namespace GitCleaner
 {
     public partial class ConfirmDialog : Window
     {
-        public ConfirmDialog(string message, bool showConfirmButton = true, string title = null)
+        public ConfirmDialog() : this("") { }
+
+        public ConfirmDialog(string message, bool showConfirmButton = true, string? title = null)
         {
             InitializeComponent();
+            
+            Loaded += (s, e) => {
+                try {
+                    var uri = new Uri("avares://GithubRemover/Assets/shutdown_def.png");
+                    using var stream = AssetLoader.Open(uri);
+                    CloseIcon.Source = new Bitmap(stream);
+                } catch { }
+            };
+            
             var lang = MainWindow.IsEnglish ? "en" : "ru";
             var titles = new Dictionary<string, string> { ["ru"] = "Подтверждение", ["en"] = "Confirmation" };
             var okTexts = new Dictionary<string, string> { ["ru"] = "ОК", ["en"] = "OK" };
@@ -21,45 +37,24 @@ namespace GitCleaner
 
             if (!showConfirmButton)
             {
-                ConfirmBtn.Visibility = Visibility.Collapsed;
+                ConfirmBtn.IsVisible = false;
                 CancelBtn.Content = okTexts[lang];
             }
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void ConfirmBtn_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            try {
-                var assembly = System.Reflection.Assembly.GetExecutingAssembly();
-                var stream = assembly.GetManifestResourceStream("shutdown_def.png");
-                if (stream != null)
-                {
-                    var bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.StreamSource = stream;
-                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                    bitmap.EndInit();
-                    var icon = CloseBtn.Template.FindName("CloseIcon", CloseBtn) as System.Windows.Controls.Image;
-                    if (icon != null) icon.Source = bitmap;
-                }
-            } catch { }
+            Close(true);
         }
 
-        private void ConfirmBtn_Click(object sender, RoutedEventArgs e)
+        private void CancelBtn_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            DialogResult = true;
-            Close();
+            Close(false);
         }
 
-        private void CancelBtn_Click(object sender, RoutedEventArgs e)
+        private void CloseBtn_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            DialogResult = false;
-            Close();
-        }
-
-        private void CloseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            DialogResult = false;
-            Close();
+            Close(false);
         }
     }
 }

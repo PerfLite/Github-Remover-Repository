@@ -7,16 +7,16 @@ A utility for deleting GitHub repositories via GUI.
 - View a list of your repositories
 - Delete repositories with a single click
 - Support for changing languages EN-RU
+- Modern Avalonia UI design
 
 ## Requirements
 
-- [.NET 8.0](https://dotnet.microsoft.com/download) (if not running from an exe)
 - [GitHub CLI](https://cli.github.com/) (`gh`) - must be installed and authorized
 
 ## Installation
 
 ### Ready exe (portable)
-Download [GithubRemover](https://github.com/PerfLite/Github-Remover-Repository/releases/download/v.1/GithubRemover.exe)
+Download from [Releases](https://github.com/PerfLite/Github-Remover-Repository/releases/latest)
 
 ## Usage
 
@@ -30,9 +30,22 @@ Download [GithubRemover](https://github.com/PerfLite/Github-Remover-Repository/r
 
 The application uses the GitHub CLI (`gh repo list` and `gh repo delete`) to work with repositories. No tokens are stored - everything is done through `gh`.
 
+## Build from source
+
+```bash
+dotnet build
+```
+
+For portable version:
+```bash
+dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true
+```
+
 ## License
 
 MIT
+
+---
 
 # GithubRemover
 
@@ -42,17 +55,17 @@ MIT
 
 - Просмотр списка ваших репозиториев
 - Удаление репозиториев одним кликом
-- Поддежка смены языков EN-RU
+- Поддержка смены языков EN-RU
+- Современный дизайн на Avalonia UI
 
 ## Требования
 
-- [.NET 8.0](https://dotnet.microsoft.com/download) (если запускать не из exe)
 - [GitHub CLI](https://cli.github.com/) (`gh`) - должен быть установлен и авторизован
 
 ## Установка
 
 ### Готовый exe (portable)
-Скачайте [GithubRemover](https://github.com/PerfLite/Github-Remover-Repository/releases/download/v.1/GithubRemover.exe)
+Скачайте из [Releases](https://github.com/PerfLite/Github-Remover-Repository/releases/latest)
 
 ## Использование
 
@@ -65,3 +78,18 @@ MIT
 ## Как это работает
 
 Приложение использует GitHub CLI (`gh repo list` и `gh repo delete`) для работы с репозиториями. Никакие токены не хранятся - всё делается через `gh`.
+
+## Сборка из исходников
+
+```bash
+dotnet build
+```
+
+Для портативной версии:
+```bash
+dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true
+```
+
+## Лицензия
+
+MIT
