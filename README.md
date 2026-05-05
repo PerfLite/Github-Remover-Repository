@@ -17,7 +17,7 @@
 ## Установка
 
 ### Готовый exe (portable)
-Скачайте `GithubRemover.exe` по [прямой ссылке](https://github.com/PerfLite/Github-Remover-Repository/releases/download/v.1/GithubRemover.exe)
+Скачайте `GithubRemover` по [прямой ссылке](https://github.com/PerfLite/Github-Remover-Repository/releases/download/v.1/GithubRemover.exe)
 
 ### Из исходников
 ```bash
