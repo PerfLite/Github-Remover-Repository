@@ -92,7 +92,7 @@ namespace GitCleaner {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/GithubRemover;V1.0.0.0;component/confirmdialog.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/GithubRemover;component/confirmdialog.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\ConfirmDialog.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

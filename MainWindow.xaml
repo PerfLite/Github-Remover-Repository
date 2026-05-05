@@ -28,9 +28,10 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <Image x:Name="IconImage" Grid.Column="0" Width="24" Height="24" Margin="10,0,5,0"/>
-                    <TextBlock Grid.Column="1" Text="GitCleaner" 
-                               FontSize="14" FontWeight="Bold" Foreground="White" 
-                               VerticalAlignment="Center"/>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBlock Text="Git" FontSize="14" FontWeight="Bold" Foreground="White"/>
+                        <TextBlock x:Name="TitleText" Text="Cleaner" FontSize="14" FontWeight="Bold" Foreground="White"/>
+                    </StackPanel>
                     <Button x:Name="CloseBtn" Grid.Column="2" Content="✕" Width="30" Height="30" 
                             Background="Transparent" Foreground="White" 
                             BorderThickness="0" Click="CloseBtn_Click" 

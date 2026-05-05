@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\dev\\ProgiiiWindows\\GithubRemover\\",
+  "WorkspaceRootPath": "C:\\dev\\ProgiiiWindows\\Github Remover Repository\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1A418B3E-04E4-D32C-E420-CBC192A4AF9B}|GithubRemover.csproj|c:\\dev\\progiiiwindows\\githubremover\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{1A418B3E-04E4-D32C-E420-CBC192A4AF9B}|GithubRemover.csproj|c:\\dev\\progiiiwindows\\github remover repository\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{1A418B3E-04E4-D32C-E420-CBC192A4AF9B}|GithubRemover.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -20,9 +20,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\dev\\ProgiiiWindows\\GithubRemover\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\dev\\ProgiiiWindows\\Github Remover Repository\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\dev\\ProgiiiWindows\\GithubRemover\\MainWindow.xaml",
+              "ToolTip": "C:\\dev\\ProgiiiWindows\\Github Remover Repository\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-05-05T02:04:03.354Z",

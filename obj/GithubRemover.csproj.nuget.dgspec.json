@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\dev\\ProgiiiWindows\\GithubRemover\\GithubRemover.csproj": {}
+    "C:\\dev\\ProgiiiWindows\\Github Remover Repository\\GithubRemover.csproj": {}
   },
   "projects": {
-    "C:\\dev\\ProgiiiWindows\\GithubRemover\\GithubRemover.csproj": {
+    "C:\\dev\\ProgiiiWindows\\Github Remover Repository\\GithubRemover.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\dev\\ProgiiiWindows\\GithubRemover\\GithubRemover.csproj",
+        "projectUniqueName": "C:\\dev\\ProgiiiWindows\\Github Remover Repository\\GithubRemover.csproj",
         "projectName": "GithubRemover",
-        "projectPath": "C:\\dev\\ProgiiiWindows\\GithubRemover\\GithubRemover.csproj",
+        "projectPath": "C:\\dev\\ProgiiiWindows\\Github Remover Repository\\GithubRemover.csproj",
         "packagesPath": "C:\\Users\\alik_\\.nuget\\packages\\",
-        "outputPath": "C:\\dev\\ProgiiiWindows\\GithubRemover\\obj\\",
+        "outputPath": "C:\\dev\\ProgiiiWindows\\Github Remover Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -29,8 +29,7 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0-windows": {
-            "framework": "net8.0-windows7.0",
+          "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {}
           }
@@ -48,10 +47,15 @@
         "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
-        "net8.0-windows": {
-          "framework": "net8.0-windows7.0",
+        "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.26, )",
+              "autoReferenced": true
+            },
             "WpfAnimatedGif": {
               "target": "Package",
               "version": "[2.0.2, )"
@@ -68,6 +72,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[8.0.26, 8.0.26]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[8.0.26, 8.0.26]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "version": "[8.0.26, 8.0.26]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -77,6 +95,11 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     }

@@ -5,7 +5,10 @@ using System.Reflection;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 
 namespace GitCleaner
 {
@@ -27,6 +30,21 @@ namespace GitCleaner
                     IconImage.Source = bitmap;
                 }
             } catch { }
+            
+            var dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Interval = TimeSpan.FromSeconds(7);
+            dispatcherTimer.Tick += (s, e) => {
+                var fadeOut = new System.Windows.Media.Animation.DoubleAnimation { From = 1, To = 0, Duration = TimeSpan.FromSeconds(0.3) };
+                fadeOut.Completed += (s2, e2) => {
+                    TitleText.Text = TitleText.Text == "Cleaner" ? "hub" : "Cleaner";
+                    var fadeIn = new System.Windows.Media.Animation.DoubleAnimation { From = 0, To = 1, Duration = TimeSpan.FromSeconds(0.3) };
+                    TitleText.BeginAnimation(OpacityProperty, fadeIn);
+                };
+                
+                TitleText.BeginAnimation(OpacityProperty, fadeOut);
+            };
+            dispatcherTimer.Start();
+            
             RepoList.ItemsSource = Repositories;
             LoadRepos();
         }

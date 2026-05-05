@@ -1,0 +1,21 @@
+# Папки сборки
+bin/
+obj/
+build/
+Release/
+publish/
+Debug/
+
+# Файлы пользовательских настроек
+*.user
+*.suo
+*.userprefs
+.vs/
+.git/
+
+# Логи
+*.log
+
+# Системные файлы
+.DS_Store
+Thumbs.db

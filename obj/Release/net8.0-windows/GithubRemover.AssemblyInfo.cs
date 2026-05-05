@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GithubRemover")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+714270d04d7a879b8db1a7eb2d47084912dee395")]
 [assembly: System.Reflection.AssemblyProductAttribute("GithubRemover")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GithubRemover")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
