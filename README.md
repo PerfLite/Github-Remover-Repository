@@ -16,7 +16,7 @@ A utility for deleting GitHub repositories via GUI The WPF Interface.
 ## Installation
 
 ### Ready exe (portable)
-Download from [Releases](https://github.com/PerfLite/Github-Remover-Repository/releases/latest)
+Download from [Releases](https://github.com/PerfLite/Github-Remover-Repository/releases/download/latest/GithubRemover.exe)
 
 ## Usage
 
@@ -65,7 +65,7 @@ MIT
 ## Установка
 
 ### Готовый exe (portable)
-Скачайте из [Releases](https://github.com/PerfLite/Github-Remover-Repository/releases/latest)
+Скачайте из [Releases](https://github.com/PerfLite/Github-Remover-Repository/releases/download/latest/GithubRemover.exe)
 
 ## Использование
 
