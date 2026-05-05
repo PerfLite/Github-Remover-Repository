@@ -1,6 +1,6 @@
 # GithubRemover
 
-A utility for deleting GitHub repositories via GUI.
+A utility for deleting GitHub repositories via GUI The WPF Interface.
 
 ## Features
 
@@ -36,7 +36,7 @@ MIT
 
 # GithubRemover
 
-Утилита для удаления GitHub-репозиториев через GUI.
+Утилита для удаления GitHub-репозиториев через GUI wpf Интерфейс.
 
 ## Возможности
 
